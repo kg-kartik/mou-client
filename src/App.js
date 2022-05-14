@@ -1,5 +1,8 @@
 import Login from './pages/Login';
 import styled from 'styled-components';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MouForm from './pages/MouForm';
+import Mous from './pages/Mous';
 
 const Wrapper = styled.div`
 	display: grid;
@@ -54,10 +57,36 @@ const Wrapper = styled.div`
 `
 
 const App = () => {
-  return (
-    <Wrapper>
-        <Login />      
-    </Wrapper>
+	return (
+		<Router>
+			<Routes>
+
+				<Route
+					path="/mou/form"
+					exact
+					element={
+						<MouForm />
+					}
+				/>
+				
+
+				<Route path="/login" exact element={
+				
+					<Wrapper>
+						<Login />
+					</Wrapper>
+				} />
+
+				<Route
+					path="/mou/mous"
+					exact
+					element={
+						<Mous />
+					}
+				/>
+
+		</Routes>
+	</Router>
   );
 }
 
