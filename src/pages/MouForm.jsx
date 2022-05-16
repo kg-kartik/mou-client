@@ -1,10 +1,28 @@
-import React,{Fragment} from "react"
+import React,{Fragment, useState} from "react"
+import Axios from "axios";
 
 const MouForm = () => {
 
-    const handleUserInput = () => {
-        console.log("lol");
-    }
+	const [mouWith,setMouWith] = useState("");
+	const [purpose,setPurpose] = useState("");
+	const [pdf,setPdf] = useState("");
+
+	const sendFormDetails = () => {
+		Axios.post("http://localhost:5000/mou/addMou",{
+			mouWith,
+			purpose,
+			pdf
+		},{
+			headers:{
+				"Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRmNDY2ZWY4M2VhYjRhYWFhNzgzNWQiLCJpYXQiOjE2NTI3MDMxMjl9.4yjqYJolgAO6meAwZty17hDSNfBC8jP1IILOI6PFxoM"
+			}
+		}).then((data) => {
+			console.log(data);
+			window.alert("Details sent");
+		}).catch((err) => {
+			console.log(err);
+		})
+	}
 
     return (
         <>
@@ -23,9 +41,7 @@ const MouForm = () => {
                         <input
                             type="text"
                             onChange={(e) =>
-                                handleUserInput(
-                                    e.target.value
-                                )
+                               setMouWith(e.target.value)
                             }
                         />
                         
@@ -42,9 +58,7 @@ const MouForm = () => {
                         name=""
                         rows={5}
                         onChange={(e) =>
-                            handleUserInput(
-                                e.target.value
-                            )
+                            setPurpose(e.target.value)
                         }
                     />
                         
@@ -60,9 +74,7 @@ const MouForm = () => {
                     <input
                         type="text"
                         onChange={(e) =>
-                            handleUserInput(
-                                e.target.value
-                            )
+                            setPdf(e.target.value)
                         }
                     />
                         
@@ -130,9 +142,9 @@ const MouForm = () => {
 								I agree to the terms and conditions
 							</div>
 						</div>
-						<div className="form-grp">
+						<div className="status-buttons">
 							<button
-								onClick={() => {console.log("lol")}}
+								onClick={() => sendFormDetails()}
 								className="btn btn-accent">
 								Send
 							</button>

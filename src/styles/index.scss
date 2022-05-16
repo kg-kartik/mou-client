@@ -566,3 +566,12 @@ a {
 		}
 	}
 }
+
+.status-buttons{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top:30px;
+	margin-left:20px;
+	margin-right:40px;
+}
