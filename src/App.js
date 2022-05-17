@@ -70,12 +70,12 @@ const App = () => {
 				/>
 				
 
-				<Route path="/login" exact element={
+				{/* <Route path="/login" exact element={
 				
 					<Wrapper>
 						<Login />
 					</Wrapper>
-				} />
+				} /> */}
 
 				<Route
 					path="/mou/mous"
