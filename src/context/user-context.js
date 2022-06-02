@@ -13,6 +13,8 @@ const UserContext = createContext({
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
+
+
 	const [user, setUser] = useState(null);
 	const [token, setToken] = useState(null);
 
@@ -28,7 +30,8 @@ export const UserProvider = ({ children }) => {
 	}, []);
 
 	const login = (email, password) => {
-		Axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
+		console.log(email,"email");
+		Axios.post("http://localhost:5000/auth/signin", {
 			email,
 			password,
 		})
@@ -37,6 +40,7 @@ export const UserProvider = ({ children }) => {
 				const { password, ...newUser } = res.user;
 				setUser(newUser);
 				setToken(res.token);
+				console.log(res.token,"token");
 				localStorage.setItem("token", res.token);
 				localStorage.setItem("user", JSON.stringify(newUser));
 			})

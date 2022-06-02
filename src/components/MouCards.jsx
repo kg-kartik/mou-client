@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import { useUser } from "../context/user-context";
 
 const MouCard = ({
 	mouWith,
@@ -11,13 +12,15 @@ const MouCard = ({
 	btn
 }) => {
 
+	const token = localStorage.getItem("token");
+
 	const statusUpdate = (status) => {
 		Axios.post("http://localhost:5000/mou/updateStatus",{
 			status,
 			mouId:_id,
 		},{
 			headers:{
-				"Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRmNDY0OGY4M2VhYjRhYWFhNzgzNWEiLCJpYXQiOjE2NTI3MDQzNTh9.ccsPBXshG4KG6aTWS2aVxVNyrIeb-hPFe7KNGNTZD3c"
+				"Authorization":"Bearer "+token
 			}
 		}).then((data) => {
 			console.log(data);

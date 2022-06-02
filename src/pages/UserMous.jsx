@@ -3,7 +3,7 @@ import MouCard from "../components/MouCards";
 import Axios from "axios";
 import { useUser } from "../context/user-context";
 
-const Mous = () => {
+const UserMous = () => {
 	const { token,user} = useUser();	
     // const [mous,setMous] = useState([]);
     const [acceptedMou,setAcceptedMou] = useState([]);
@@ -14,13 +14,13 @@ const Mous = () => {
     useEffect(() => {
 		const token = localStorage.getItem("token");
 
-        Axios.get("http://localhost:5000/mou/getAllMous",{
+        Axios.get("http://localhost:5000/mou/getUserMous",{
 			headers:{
 				"Authorization":"Bearer "+token
 			}
 		}).then((res) => {
             let accepted =[],rejected =[],pending=[];
-			console.log(res.data.data);
+			console.log(res.data.data,"daaa");
             res.data.data.map((mou) => {
                 if(mou.status === "Accepted"){
                     console.log(mou,"accepted");
@@ -47,15 +47,6 @@ const Mous = () => {
 
     return (
 		<div className="EventCards">
-			<div className="container">
-					<div className="heading">MOUs Signed</div>
-				<div className="events">
-                    {pendingMou &&
-                        pendingMou.map((e) => (
-                            <MouCard btn={true} key={e.name} {...e} />
-                        ))}
-				</div>
-			</div>
 
             <div className="container">
 					<div className="heading">MOUs Accepted</div>
@@ -80,4 +71,4 @@ const Mous = () => {
 	);
 };
 
-export default Mous;
+export default UserMous;

@@ -8,13 +8,15 @@ const MouForm = () => {
 	const [pdf,setPdf] = useState("");
 
 	const sendFormDetails = () => {
+		const token = localStorage.getItem("token");
+
 		Axios.post("http://localhost:5000/mou/addMou",{
 			mouWith,
 			purpose,
 			pdf
 		},{
 			headers:{
-				"Authorization":"Bearer "+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRmNDY2ZWY4M2VhYjRhYWFhNzgzNWQiLCJpYXQiOjE2NTI3MDMxMjl9.4yjqYJolgAO6meAwZty17hDSNfBC8jP1IILOI6PFxoM"
+				"Authorization":"Bearer "+token
 			}
 		}).then((data) => {
 			console.log(data);

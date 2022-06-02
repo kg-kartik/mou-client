@@ -1,26 +1,24 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useUser } from "../context/user-context";
 import { useNavigate } from "react-router-dom";
 
-const FormEnter = () => {
+const FormEnter = ({text}) => {
 	const { user, login, logout } = useUser();
-	const isAuth = true;
+	const isAuth = localStorage.getItem("token") ? true : false;
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
 	const navigate = useNavigate();
 
 	// TODO: Make Protected Route
-	if (!isAuth) return;
+	// if (!isAuth) return;
 
 	return (
 		<div className="FormEnter">
 			<div className="container">
-				<div className="heading">{isAuth ? "Profile" : "Login"}</div>
+				<div className="heading">{isAuth ? `${text} Profile`: `${text} login`}</div>
 				<div className="description">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Necessitatibus cupiditate inventore corporis? Similique,
-					expedita iusto ut vel sunt optio iste.
+					{text}
 				</div>
 				<div className="form">
 					{!isAuth ? (
@@ -29,18 +27,15 @@ const FormEnter = () => {
 								<label htmlFor="email">
 									What{`'`}s your email?
 								</label>
-								<div className="input-container">
 									<input
-										id="login-input-one"
 										type="text"
 										name="username"
 										value={username}
 										onChange={(e) =>
 											setUsername(e.target.value)
 										}
-										placeholder=""
+										placeholder="Enter your email"
 									/>
-								</div>
 							</div>
 							<div className="form-grp">
 								<label htmlFor="password">
@@ -61,7 +56,9 @@ const FormEnter = () => {
 							</div>
 							<button
 								className="btn btn-accent"
-								onClick={() => login(username, password)}>
+								onClick={() => {
+									login(username, password);
+								}}>
 								{/* > */}
 								Login
 							</button>
