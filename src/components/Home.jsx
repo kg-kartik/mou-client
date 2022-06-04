@@ -15,7 +15,7 @@ const HeroSection = () => {
 					<div className="btn-grp">
 						<button
 							className="btn btn-accent"
-							onClick={() => navigate("/login")}>
+							onClick={() => navigate("/profile")}>
 							Get Started
 						</button>
 						<button className="btn ">Learn More</button>

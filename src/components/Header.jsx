@@ -16,7 +16,7 @@ const Header = () => {
 				<div className="nav">
 					<div
 						className="nav__item"
-						onClick={() => navigate("/login")}>
+						onClick={() => navigate("/profile")}>
 						<RiUser3Line />
 					</div>
 				</div>

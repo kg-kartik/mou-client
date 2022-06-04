@@ -19,7 +19,7 @@ const App = () => {
 			<Routes>
 				<Route path="/" exact element={<Home />} />
 				<Route path="/mou/form" exact element={<MouForm />} />
-				<Route path="/login" exact element={<Login text={"faculty"} />} />
+				<Route path="/profile" exact element={<Login text={"faculty"} />} />
 				<Route path="/admin/login/kg20rs19" exact element={<Login text={"Admin"} />} />
 				<Route path="/mou/mous" exact element={<Mous />} />
 				<Route path="/mou/getUserMous" exact element={<UserMous />} />
