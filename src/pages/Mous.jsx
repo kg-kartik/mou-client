@@ -48,7 +48,7 @@ const Mous = () => {
     return (
 		<div className="EventCards">
 			<div className="container">
-					<div className="heading">MOUs Signed</div>
+					<div className="heading">MOUs Pending</div>
 				<div className="events">
                     {pendingMou &&
                         pendingMou.map((e) => (

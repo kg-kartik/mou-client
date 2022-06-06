@@ -4,13 +4,15 @@ import { useUser } from "../context/user-context";
 
 const MouCard = ({
 	mouWith,
-    file,
+    pdf,
 	_id,
 	user,
     purpose,
     assignee,
 	btn
 }) => {
+
+	console.log(pdf);
 
 	const token = localStorage.getItem("token");
 
@@ -35,21 +37,30 @@ const MouCard = ({
 			<div className="name">{mouWith}</div>
 			<div className="details">
 				<div className="type">{user.name}</div>
-				{/* <div className="date">{file}</div> */}
+				<div className="date"><a href={pdf}>Proposal Link</a></div>
 			</div>
-			<div className="description">{purpose.substring(0, 80)}...</div>
+			<div className="description">{purpose}...</div>
 			{btn ? (
-				<div className="status-buttons">
-					<button
-						onClick={() => statusUpdate("Accepted")}
-						className="btn btn-accent">
-						Accept
-					</button>
-					<button
-						onClick={() => statusUpdate("Rejected")}
-						className="btn btn-accent">
-						Reject
-					</button>
+				<div className="buttons-container">
+					<div className="status-buttons">
+						<button
+							onClick={() => statusUpdate("Accepted")}
+							className="btn btn-accent">
+							Accept
+						</button>
+						<button
+							onClick={() => statusUpdate("Rejected")}
+							className="btn btn-accent reject-button">
+							Reject
+						</button>
+					</div>
+					<div>
+						<button
+							onClick={() => statusUpdate("Accepted")}
+							className="btn btn-accent ask-button">
+							Ask question
+						</button>
+					</div>
 				</div>
 			) :(
 				<>

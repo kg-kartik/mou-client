@@ -49,6 +49,16 @@ const UserMous = () => {
 		<div className="EventCards">
 
             <div className="container">
+					<div className="heading">MOUs Pending</div>
+				<div className="events">
+                    {pendingMou &&
+                        pendingMou.map((e) => (
+                            <MouCard key={e.name} {...e} />
+                        ))}
+				</div>
+			</div>
+
+            <div className="container">
 					<div className="heading">MOUs Accepted</div>
 				<div className="events">
                     {acceptedMou &&
