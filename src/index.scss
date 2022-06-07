@@ -252,6 +252,29 @@ a {
 	}
 }
 
+.btn-accept {
+	background: #77a83e;
+	border:none;
+	color: var(--pure);
+	&:hover {
+		@include shadow-blue;
+	}
+}
+
+.answer-button{
+	margin-left:40%;
+	margin-top:5%;
+}
+
+.btn-submit {
+	background: var(--accent);
+	color: var(--pure);
+	&:hover {
+		@include shadow-blue;
+	}
+	margin: 20px auto;
+}
+
 .btn-danger {
 	border: solid 2px var(--red);
 	background: var(--red);
@@ -325,6 +348,12 @@ a {
 		}
 	}
 }
+
+.modal__heading {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
 
 .scroll-shadows {
 	max-height: 200px;
@@ -560,7 +589,7 @@ a {
 		}
 		.events {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
 			grid-gap: 1.5rem;
 			margin-block: 2rem;
 		}
