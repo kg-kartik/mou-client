@@ -94,8 +94,7 @@ const MouForm = () => {
 				<div className="container">
 					<div className="heading">Finishing Up ✌🏻</div>
 					<div className="description">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						🌿
+						
 					</div>
 
 					<div className="form">

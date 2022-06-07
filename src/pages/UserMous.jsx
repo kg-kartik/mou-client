@@ -53,7 +53,7 @@ const UserMous = () => {
 				<div className="events">
                     {pendingMou &&
                         pendingMou.map((e) => (
-                            <MouCard key={e.name} {...e} />
+                            <MouCard key={e.name} buttonanswer={true} {...e} />
                         ))}
 				</div>
 			</div>

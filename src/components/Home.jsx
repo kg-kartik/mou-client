@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 const HeroSection = () => {
 	const navigate = useNavigate();
 	return (
@@ -7,10 +8,7 @@ const HeroSection = () => {
 				<div className="left">
 					<div className="heading">Welcome to MOU</div>
 					<div className="description">
-						Lorem ipsum dolor sit amet consectetur, adipisicing
-						elit. Hic ea aspernatur veniam earum delectus quod,
-						fugiat sed dignissimos aperiam deserunt consequatur
-						iure, neque qui molestias iusto.
+					After spending hours running to get your MOUs approved, try our app to make it quick and seamless from the comfort of your own office.
 					</div>
 					<div className="btn-grp">
 						<button

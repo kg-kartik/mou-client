@@ -3,7 +3,7 @@ import { useUser } from "../context/user-context";
 import { useNavigate } from "react-router-dom";
 import UserMous from "./UserMous";
 
-const FormEnter = () => {
+const FormEnter = ({text}) => {
 	const { user, login, logout } = useUser();
 	const isAuth = localStorage.getItem("token") ? true : false;
 	const [username, setUsername] = useState("");
@@ -14,13 +14,13 @@ const FormEnter = () => {
 	// TODO: Make Protected Route
 	// if (!isAuth) return;
 
-	const [userType,setUserType] = useState(user?.userType === "Admin" ? "Admin" :"Faculty")
+	// const [userType,setUserType] = useState(user?.userType === "Admin" ? "Admin" :"Faculty")
 
 	return (
 		<>
 		<div className="FormEnter">
 			<div className="container">
-				<div className="heading">{isAuth ? `${userType} Profile`: `${userType} login`}</div>
+				<div className="heading">{isAuth ?  "Profile":" login"}</div>
 				<div className="description">
 				</div>
 				<div className="form">
